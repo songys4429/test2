@@ -1,0 +1,28 @@
+#include <stdio.h>
+int Add(int a, int b);
+int main(void) {
+  int abc=5;
+  int* pnt1 = &abc;
+  printf("%d\n", *pnt1);
+  int v[5]={2,1,3,5,4};
+  int* pnt2 = v;
+  for(int i=0; i<5; i++){
+    printf("%d ", *pnt2);
+    pnt2++;
+  }
+  struct Person{
+  	int age;
+  	char name[80];
+  };
+  struct Person he = {18, "Kim"};
+  struct Person* pnt3 = &he;
+  printf("%d %s\n", pnt3->age, pnt3->name);
+  printf("%d\n", Add(2,3));
+  int (* pnt4)(int a, int b);
+  pnt4 = Add;
+  printf("%d\n", pnt4(2,3));
+  return 0;
+}
+int Add(int a, int b){
+	return a+b;
+}
