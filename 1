@@ -1,0 +1,41 @@
+#include <stdio.h>
+int Add(int a, int b); //함수원형, 프로토타입
+int main(void) {
+  //1
+  int a=3; 
+  int* p1 = &a;
+  //2
+  printf("%d\n", *p1);
+  //3
+  int v[]={2,1,5,3,4};
+  //4
+  int* p2 = v;
+  for(int i=0;i<5;i++){
+    //5
+    //printf("%d ", p2[i]);
+    //printf("%d ", *(p2+i));
+    printf("%d ", *p2);
+    p2++;
+  }
+  // 6
+  struct User{
+    int age;
+    char name[80];
+  };
+  struct User me = {18, "Shim"};
+  // 7
+  struct User* p3 = &me;
+  // 8
+  printf ("%d %s\n", p3->age, p3->name);
+  // 9
+  printf("%d\n", Add(2,3));
+  //10
+  int (* p4)(int a, int b);
+  p4 = Add;
+  printf("%d\n", p4(2,3));
+
+  return 0;
+}
+int Add(int a, int b){
+  return a+b;
+}
